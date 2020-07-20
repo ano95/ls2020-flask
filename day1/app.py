@@ -1,16 +1,25 @@
 from flask import Flask, render_template, request, session
 
+# zadefinujeme si nasu Flask aplikaciu
 app = Flask(__name__)
+
+# toto by mal byt nejaky nahodny string,
+# pouziva sa na sifrovanie sessionov:
 app.config["SECRET_KEY"] = "nieco"
+
 
 @app.route("/", methods=["GET", "POST"])
 def ahoj():
+    # ak chceme nieco zobrat z POST requestu, pouzijeme request.form
+    # ak chceme nieco zobrat z GET requestu (to je ?nieco na konci adresy),
+    # pouzijeme request.args
     meno = request.form.get("meno")
     return render_template("formular.html", meno=meno)
 
+
+# tato "cesta" berie dva parametre: meno a pocet
 @app.route("/pozdrav/<meno>/<int:pocet>")
 def pozdrav(meno, pocet):
-    # pocet = int(pocet)
     return render_template("pozdrav.html", meno=meno, pocet=pocet)
 
 
