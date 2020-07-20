@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prihlasit sa</title>
+</head>
+<body>
+    {% if error %}
+    <p>{{ error }}</p>
+    {% endif %}
+
+    <form method="post">
+        Tvoje meno:
+        <input type="text" name="meno">
+
+        Tvoje heslo:
+        <input type="password" name="heslo">
+
+        <button type="submit">Prihlasit sa</button>
+    </form>
+</body>
+</html>

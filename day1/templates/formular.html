@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formular</title>
+</head>
+<body>
+    <form method="post">
+        Tvoje meno:
+        <input type="text" name="meno">
+        <button type="submit">Pozdrav ma!</button>
+    </form>
+
+    {% if meno %}
+    <h1>Ahoj, {{ meno }}!</h1>
+    {% endif %}
+</body>
+</html>
