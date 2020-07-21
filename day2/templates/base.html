@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+<head>
+    <title>Moja najlepsia webstranka</title>
+</head>
+
+<body>
+    {% if "name" in session %}
+    <p>
+        Prihlásený ako <b>{{ session["name"] }}</b>.
+        <a href="{{ url_for('logout') }}">Odhlásiť sa</a>
+    </p>
+    {% else %}
+    <p>
+        Nie si prihlásený.
+        <a href="{{ url_for('login') }}">Prihlásiť sa</a>
+    </p>
+    {% endif %}
+
+    {% block content %}{% endblock content %}
+</body>
+</html>

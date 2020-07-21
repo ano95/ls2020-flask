@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Posledne prispevky</h1>
+
+{% for post in posts %}
+<pre>{{ post.code }}</pre>
+<p>{{ post.text }}</p>
+<p>Napísal {{ post.user.name }} dňa {{ post.created.strftime("%d.%m.%Y") }}</p>
+<hr>
+{% endfor %}
+
+{% endblock content %}
