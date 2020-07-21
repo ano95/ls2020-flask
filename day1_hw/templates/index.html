@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Hadaj cislo</title>
+</head>
+<body>
+    <form method="post">
+        {% if sprava %}
+        <p>{{ sprava }}</p>
+        {% endif %}
+
+        Zadaj cislo: <input type="number" name="cislo">
+
+        <button type="submit">Ok</button>
+    </form>
+</body>
+</html>
