@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Upravit prispevok</h1>
+
+<form method="post">
+
+    Kód:
+    <textarea name="code" rows="5">{{ post.code }}</textarea><br>
+
+    Popis:
+    <textarea name="text" rows="5">{{ post.text }}</textarea><br>
+
+    <button type="submit">Ulozit prispevok</button>
+
+</form>
+
+{% endblock content %}

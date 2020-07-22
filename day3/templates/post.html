@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Príspevok</h1>
+
+<div class="card mb-2">
+    <div class="card-body">
+        <pre class="mb-0">{{ post.code }}</pre>
+    </div>
+</div>
+<p class="mb-0">{{ post.text }}</p>
+<p class="text-muted"><small>
+    Napísal {{ post.user.name }} dňa {{ post.created.strftime("%d.%m.%Y") }}
+</small></p>
+
+
+{% if "name" in session and session["id"] == post.user_id %}
+<p>
+    <a class="btn btn-primary btn-sm" href="{{ url_for('edit_post', id=post.id) }}">Upravit</a>
+</p>
+{% endif %}
+
+<h2>Komentáre</h2>
+
+<ul class="list-group">
+    {% for comment in comments %}
+    <li class="list-group-item">
+        <p class="mb-0 text-muted"><b>{{ comment.user.name }}</b> komentoval {{ comment.created.strftime("%d.%m.%Y o %H:%M") }}:</p>
+        {{ comment.text }}
+    </li>
+    {% endfor %}
+</ul>
+
+
+{% if "name" in session %}
+<hr>
+<form method="post">
+    <div class="form-group">
+        <label for="text">Text komentáru:</label>
+        <textarea class="form-control" id="text" name="text" rows="3"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Pridaj komentár</button>
+</form>
+{% endif %}
+
+{% endblock content %}

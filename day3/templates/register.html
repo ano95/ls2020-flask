@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form method="POST">
+
+    {% if error %}
+    {{ error }}<br>
+    {% endif %}
+
+    Meno:
+    <input type="text" name="name"><br>
+
+    Email:
+    <input type="email" name="email"><br>
+
+    Heslo:
+    <input type="password" name="password"><br>
+
+    Heslo znovu:
+    <input type="password" name="password2"><br>
+
+    <button type="submit">Registrovat sa</button>
+
+</form>
+{% endblock content %}

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Novy prispevok</h1>
+
+<form method="post">
+
+    Kód:
+    <textarea name="code" rows="5"></textarea><br>
+
+    Popis:
+    <textarea name="text" rows="5"></textarea><br>
+
+    <button type="submit">Pridať prispevok</button>
+
+</form>
+
+{% endblock content %}

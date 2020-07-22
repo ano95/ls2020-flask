@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Posledne prispevky</h1>
+
+{% if "name" in session %}
+<p>
+    <a href="{{ url_for("new_post") }}" class="btn btn-success">Nový príspevok</a>
+</p>
+{% endif %}
+
+{% for post in posts.items %}
+<div class="card mb-2">
+    <div class="card-body">
+        <pre class="mb-0">{{ post.code }}</pre>
+    </div>
+</div>
+<p class="mb-0">{{ post.text }}</p>
+<p class="text-muted"><small>
+    Napísal {{ post.user.name }} dňa {{ post.created.strftime("%d.%m.%Y") }}
+    <a href="{{ url_for('show_post', id=post.id) }}">Zobrazit komentare</a>
+</small></p>
+<hr>
+{% endfor %}
+
+{% if posts.has_prev %}
+<a href="{{ url_for('index', page=posts.prev_num) }}" class="btn btn-secondary">Novšie príspevky</a>
+{% endif %}
+
+{% if posts.has_next %}
+<a href="{{ url_for('index', page=posts.next_num) }}" class="btn btn-secondary float-right">Staršie príspevky</a>
+{% endif %}
+
+{% endblock content %}
